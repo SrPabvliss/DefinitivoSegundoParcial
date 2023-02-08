@@ -320,4 +320,30 @@ public class Usuario {
         }
     }
 
+    public void almacenarReserva(String matricula, String cedula, String fechaInicio, String fechaFinal) { //Metodo para agregar lo que se tiene del registro a la base de datos
+
+        PreparedStatement ps;
+        String sql;
+
+        try {
+            sql = "INSERT INTO alquiler.reserva (MATRICULA, CI, FECHA_INICIO, FECHA_FINAL) values (?,?,?,?)";
+            ps = con.prepareStatement(sql);
+
+            ps.setString(1, matricula);
+            ps.setString(2, cedula);
+            ps.setString(3, fechaInicio);
+            ps.setString(4, fechaFinal);
+
+            ps.executeUpdate();
+            System.out.println("Se han ingresado los datos  :D");
+            JOptionPane.showMessageDialog(null, "Ha sido registrado con exito");
+        } catch (SQLException ex) {
+            System.out.println("ex = " + ex);
+            System.out.println("Error al insertar los datos :( ");
+        }
+        
+        
+    
+    }
+
 }

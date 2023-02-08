@@ -5,6 +5,14 @@
 package GUI;
 
 import SQL.Usuario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -38,7 +46,7 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReservas = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnFinalizar = new javax.swing.JButton();
         txtSeleccion1 = new javax.swing.JTextField();
         txtID1 = new javax.swing.JTextField();
 
@@ -120,8 +128,14 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 640, 280));
 
-        jButton1.setText("Finalizar reservas");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 130, -1));
+        btnFinalizar.setText("Finalizar reservas");
+        btnFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinalizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFinalizarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 130, -1));
 
         txtSeleccion1.setEditable(false);
         txtSeleccion1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -146,13 +160,33 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
         int seleccionar = tblReservas.rowAtPoint(evt.getPoint());
-        user.eliminarReserva(UsuarioDatos.cedula,txtMATRICULA.getText(), txtID1.getText());
+        user.eliminarReserva(UsuarioDatos.cedula, txtMATRICULA.getText(), txtID1.getText());
         user.completarReservar(tblReservas, UsuarioDatos.cedula);
         txtID1.setText(" ");
-        txtMATRICULA .setText(" ");
+        txtMATRICULA.setText(" ");
         txtSeleccion1.setText(" ");
 
     }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private double calcularTotal() {
+
+        double total = 0;
+        int days;
+        double precio;
+        for (int i = 0; i < tblReservas.getRowCount(); i++) {
+
+            LocalDate fechaInicial = LocalDate.parse(String.valueOf(tblReservas.getValueAt(i, 5)));
+            LocalDate FechaFinal = LocalDate.parse(String.valueOf(tblReservas.getValueAt(i, 6)));
+            Duration dias = Duration.between(fechaInicial.atStartOfDay(), FechaFinal.atStartOfDay());
+            System.out.println("dias = " + dias.toDays());
+            days = (int) dias.toDays();
+            precio = (Double.parseDouble(String.valueOf(tblReservas.getValueAt(i, 7))));
+            System.out.println(precio);
+            total += days*precio;
+            System.out.println(total);
+        }
+        return total;
+    }
 
     private void txtMATRICULAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMATRICULAMouseClicked
 
@@ -163,7 +197,7 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
         txtSeleccion1.setText(String.valueOf(tblReservas.getValueAt(seleccionar, 1)) + " " + String.valueOf(tblReservas.getValueAt(seleccionar, 2)));
         txtID1.setText(String.valueOf(tblReservas.getValueAt(seleccionar, 0)));
         txtMATRICULA.setText(String.valueOf(tblReservas.getValueAt(seleccionar, 4)));
-        
+
         btnEliminar.setEnabled(true);    }//GEN-LAST:event_tblReservasMouseClicked
 
     private void txtSeleccion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSeleccion1MouseClicked
@@ -174,10 +208,14 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtID1MouseClicked
 
+    private void btnFinalizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarMouseClicked
+        calcularTotal();
+    }//GEN-LAST:event_btnFinalizarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnFinalizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;

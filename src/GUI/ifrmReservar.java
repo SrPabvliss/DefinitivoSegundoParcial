@@ -28,12 +28,10 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
     Date fechaFinAlquiler = new Date();
     Date fechaInicioBD = new Date();
     Date fechaFinalBD = new Date();
-    List<Date> fechasFinalBD = new ArrayList<>();
-    List<Date> fechasInicialesBD = new ArrayList<>();
-    List<Date> fechasOcupadas = new ArrayList<>();
     Usuario user = new Usuario();
     Conexion conn = new Conexion();
     Connection con = conn.conection();
+    int resultado;
 
     public ifrmReservar() {
         initComponents();
@@ -49,99 +47,74 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
 
     public void comprobarReserva() {
         //DESDE AQUI SERIA EL NUEVO METODO PARA USUARIO 
-        int resultado;
+        
+
+        fechaIncioAlquiler.setDate(Integer.parseInt(String.valueOf(cmbDiaInicio.getSelectedItem())));
+        fechaIncioAlquiler.setYear(2023);
+        fechaIncioAlquiler.setMonth(Integer.parseInt(String.valueOf(cmbMesInicio.getSelectedItem())));
 
         try {
-            String sql = "SELECT * FROM alquiler.reserva WHERE reserva.MATRICULA = '" + UsuarioDatos.matricula + "';";
-            System.out.println(sql);
+            String sql = "SELECT * FROM alquiler.reserva WHERE reserva.MATRICULA = '" + UsuarioDatos.matricula + "'order by FECHA_FINAL desc;";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-
             if (rs.next()) {
-
-                fechaIncioAlquiler.setDate(Integer.parseInt(String.valueOf(cmbDiaInicio.getSelectedItem())));
-                fechaIncioAlquiler.setYear(2023);
-                fechaIncioAlquiler.setMonth(Integer.parseInt(String.valueOf(cmbMesInicio.getSelectedItem())));
                 resultado = 1;
                 System.out.println("Se ha encontrado el vehiculo");
                 String AnioInicio = rs.getString(4).substring(0, 4);
+                System.out.println("AnioInicio = " + AnioInicio);
                 String MesInicio = rs.getString(4).substring(5, 7);
+                System.out.println("MesInicio = " + MesInicio);
                 String DiaInicio = rs.getString(4).substring(8, 10);
+                System.out.println("DiaInicio = " + DiaInicio);
                 fechaInicioBD.setYear(Integer.parseInt(AnioInicio));
                 fechaInicioBD.setMonth(Integer.parseInt(MesInicio));
                 fechaInicioBD.setDate(Integer.parseInt(DiaInicio));
-                fechasInicialesBD.add(fechaFinalBD);
 
                 String AnioFinal = rs.getString(5).substring(0, 4);
+                System.out.println("AnioFinal = " + AnioFinal);
                 String MesFinal = rs.getString(5).substring(5, 7);
+                System.out.println("MesFinal = " + MesFinal);
                 String DiaFinal = rs.getString(5).substring(8, 10);
+                System.out.println("DiaFinal = " + DiaFinal);
                 fechaFinalBD.setYear(Integer.parseInt(AnioFinal));
                 fechaFinalBD.setMonth(Integer.parseInt(MesFinal));
                 fechaFinalBD.setDate(Integer.parseInt(DiaFinal));
-                fechasFinalBD.add(fechaFinalBD);
 
-                lblIndicacion2.setText("Este coche se encuentra reservado desde: " + fechaInicioBD.getYear() + "-" + fechaInicioBD.getMonth() + "-"
-                        + fechaInicioBD.getDate() + " hasta:" + fechaFinalBD.getYear() + "-" + fechaFinalBD.getMonth() + "-"
-                        + fechaFinalBD.getDate());
-
-                //Comparacion 
+                lblIndicacion2.setText("Ultima reserva: Desde  " + fechaInicioBD.getYear() + "-" + fechaInicioBD.getMonth() + "-" + fechaInicioBD.getDate() + " hasta " + fechaFinalBD.getYear() + "-" + fechaFinalBD.getMonth() + "-" + fechaFinalBD.getDate());
+                completarFechaFinal();
+                //Este solo verifica la fecha de inicio de la reserva
+                if (fechaIncioAlquiler.getYear() >= fechaFinalBD.getYear() && fechaIncioAlquiler.getYear() >= 2023) {
+                    System.out.println("Elegible");
+                    completarFechaFinal();
+                    if (fechaIncioAlquiler.getMonth() >= fechaInicioBD.getMonth() && fechaIncioAlquiler.getMonth() <= fechaFinalBD.getMonth()) {
+                        System.out.println("El mes esta dentro del rango del anterior alquiler, verificando dia");
+                        if (!(fechaIncioAlquiler.getDate() >= fechaInicioBD.getDate() && fechaIncioAlquiler.getDate() <= fechaFinalBD.getDate())) {
+                            System.out.println("Se puede proceder, el dia esta disponible");
+                            
+                            completarFechaFinal();
+                        } else {
+                            
+                            JOptionPane.showMessageDialog(null, "El coche ya ha sido alquilado en esa fecha, no se puede alquilar");
+                            System.out.println("El coche ya ha sido alquilado en esa fecha, no se puede alquilar");
+                        }
+                    } else {
+                       
+                        System.out.println("Se puede proceder al alquiler");
+                        completarFechaFinal();
+                    }
+                } else {
+                    System.out.println("Creo que lo resolvi");
+                }
             } else {
+                resultado = 0;
                 System.out.println("Comprobar en tabla vehiculos y agregar");
                 revisarEnCoche();
+                completarFinal();
             }
 
-            Date fecha = new Date();
-            //Este solo verifica la fecha de inicio de la reserva
-            for (int i = 0; i < fechasInicialesBD.size(); i++) {
-                if (fechasInicialesBD.get(i).getYear() == fechasFinalBD.get(i).getYear()) {
-                    if (fechasInicialesBD.get(i).getMonth() == fechasFinalBD.get(i).getMonth()) {
-                        int dias = fechasFinalBD.get(i).getDate() - fechasInicialesBD.get(i).getDate();
-                        for (int j = fechasInicialesBD.get(i).getDate(); j <= dias; j++) {
-                            fecha.setYear(fechasInicialesBD.get(i).getYear());
-                            fecha.setMonth(fechasInicialesBD.get(i).getMonth());
-                            fecha.setDate(j);
-                            fechasOcupadas.add(fecha);
-                        }
-                    }
-                }
-
-            }
-            boolean ocupable = true;
-            for (int i = 0; i < fechasOcupadas.size(); i++) {
-                if (fechaIncioAlquiler == fechasOcupadas.get(i)) {
-                    ocupable = false;
-                    break;
-                }
-            }
-
-            if (ocupable == false) {
-                JOptionPane.showMessageDialog(null, "El coche ya ha sido alquilado en esa fecha, no se puede alquilar");
-            } else if (ocupable == true) {
-                System.out.println("Se puede proceder, el dia esta disponible");
-                Habilitar(true);
-            }
-
-//            if (fechaIncioAlquiler.getYear() == fechaFinalBD.getYear() && fechaIncioAlquiler.getYear() == 2023) {
-//                System.out.println("Elegible");
-//                if (fechaIncioAlquiler.getMonth() >= fechaInicioBD.getMonth() && fechaIncioAlquiler.getMonth() <= fechaFinalBD.getMonth()) {
-//                    System.out.println("El mes esta dentro del rango del anterior alquiler, verificando dia");
-//                    if (!(fechaIncioAlquiler.getDate() >= fechaInicioBD.getDate() && fechaIncioAlquiler.getDate() <= fechaFinalBD.getDate())) {
-//                        System.out.println("Se puede proceder, el dia esta disponible");
-//                        Habilitar(true);
-//                    } else {
-//                        
-//                    }
-//                } else {
-//                    System.out.println("Se puede proceder al alquiler");
-//                    lblIndicacion2.setText("Este carro esta disponible");
-//                    Habilitar(true);
-//                }
-//            } else {
-//                System.out.println("Creo que lo resolvi");
-//            }
             //Verificar si se puede llenar los combo box de esta manera para facilitar la validacion del registro
-            String envioAbase = fechaIncioAlquiler.getYear() + "-" + fechaIncioAlquiler.getMonth() + "-" + fechaIncioAlquiler.getDate();
-            System.out.println("envioAbase = " + envioAbase);
+//            String envioAbase = fechaIncioAlquiler.getYear() + "-" + fechaIncioAlquiler.getMonth() + "-" + fechaIncioAlquiler.getDate();
+//            System.out.println("envioAbase = " + envioAbase);
 
         } catch (SQLException ex) {
             System.out.println("ex = " + ex);
@@ -154,8 +127,13 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         for (int i = fechaIncioAlquiler.getMonth(); i <= 12; i++) {
             cmbMesFinal.addItem(String.valueOf(i));
         }
+        if (Integer.parseInt(String.valueOf(cmbMesFinal.getSelectedItem())) != fechaIncioAlquiler.getMonth()) {
 
-        if (fechaIncioAlquiler.getMonth() == fechaInicioBD.getMonth()) {
+            for (int i = fechaIncioAlquiler.getDate(); i <= 31; i++) {
+                cmbDiaFInal.addItem(String.valueOf(i));
+            }
+
+        } else if (fechaIncioAlquiler.getMonth() == fechaInicioBD.getMonth()) {
             if (fechaIncioAlquiler.getDate() < fechaInicioBD.getDate()) {
                 for (int i = fechaIncioAlquiler.getDate(); i <= fechaInicioBD.getDate(); i++) {
 
@@ -172,9 +150,18 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
                 }
             }
         } else if (fechaIncioAlquiler.getMonth() != fechaInicioBD.getMonth()) {
-            for (int i = fechaIncioAlquiler.getDate(); i <= 31; i++) {
+            for (int i = 1; i <= 31; i++) {
                 cmbDiaFInal.addItem(String.valueOf(i));
             }
+        }
+    }
+
+    private void completarFinal() {
+        for (int i = 1; i <= 12; i++) {
+            cmbMesFinal.addItem(String.valueOf(i));
+        }
+        for (int i = 1; i <= 31; i++) {
+            cmbDiaFInal.addItem(String.valueOf(i));
         }
     }
 
@@ -203,15 +190,10 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
             if (rs.next()) {
                 Habilitar(true);
                 System.out.println("Se ha encontrado el vehiculo");
-                for (int i = 1; i <= 12; i++) {
-                    cmbMesFinal.addItem(String.valueOf(i));
-                }
-                for (int i = 1; i <= 31; i++) {
-                    cmbDiaFInal.addItem(String.valueOf(i));
-                }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ifrmReservar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ifrmReservar.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -222,7 +204,7 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         lblIndicacion2.setEnabled(true);
         cmbDiaFInal.setEnabled(true);
         cmbMesFinal.setEnabled(true);
-        btnFinalizarReserva.setEnabled(true);
+        
     }
 
     /**
@@ -373,6 +355,11 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         getContentPane().add(lblMesFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, 20));
 
         cmbMesFinal.setEnabled(false);
+        cmbMesFinal.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbMesFinalItemStateChanged(evt);
+            }
+        });
         getContentPane().add(cmbMesFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 90, -1));
 
         cmbDiaFInal.setEnabled(false);
@@ -421,8 +408,13 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         comprobarReserva();
         cmbDiaFInal.removeAllItems();
         cmbMesFinal.removeAllItems();
-
-        completarFechaFinal();
+        if (resultado == 1) {
+            completarFechaFinal();
+        } else if (resultado == 0) {
+            completarFinal();
+        }
+        btnFinalizarReserva.setEnabled(true);
+        Habilitar(true);
 
     }//GEN-LAST:event_btnVerificarMouseClicked
 
@@ -437,7 +429,19 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
 
     private void btnFinalizarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarReservaMouseClicked
         comprobarFechaFinal();
+        String fechaInicio = fechaIncioAlquiler.getYear() + "-" + fechaIncioAlquiler.getMonth() + "-" + fechaIncioAlquiler.getDate();
+        String fechaFin = fechaFinAlquiler.getYear() + "-" + fechaFinAlquiler.getMonth() + "-" + fechaFinAlquiler.getDate();
+        System.out.println("fechaInicio = " + fechaInicio);
+        System.out.println("fechaFin = " + fechaFin);
+        System.out.println(UsuarioDatos.matricula);
+        System.out.println(UsuarioDatos.cedula);
+        
+        user.almacenarReserva(UsuarioDatos.matricula, UsuarioDatos.cedula, fechaInicio, fechaFin);
     }//GEN-LAST:event_btnFinalizarReservaMouseClicked
+
+    private void cmbMesFinalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbMesFinalItemStateChanged
+
+    }//GEN-LAST:event_cmbMesFinalItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
