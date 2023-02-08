@@ -1,13 +1,14 @@
 package SQL;
 
 import java.sql.*;
+import GUI.UsuarioDatos;
 
 public class Conexion {
 
     private final String bd = "alquiler";
     private final String URL = "jdbc:mysql://localhost:3306/";
-    private final String usuario = "root";
-    private final String clave = "Villacres_04";
+    private final String usuario = UsuarioDatos.UsuarioSQL;
+    private final String clave = UsuarioDatos.pswdSQL;
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private Connection con = null;
 

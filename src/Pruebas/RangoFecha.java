@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import GUI.UsuarioDatos;
 
 /**
  *
@@ -24,6 +25,7 @@ public class RangoFecha {
         final String clave = "Villacres_04";
         final String driver = "com.mysql.cj.jdbc.Driver";
         Connection con = null;
+        
 
         try {
             Class.forName(driver);
@@ -43,6 +45,7 @@ public class RangoFecha {
 
         Date fechaInicioBD = new Date();
         Date fechaFinalBD = new Date();
+        
 
         try {
             String sql = "SELECT * FROM alquiler.reserva WHERE reserva.MATRICULA ='AXC123';";
