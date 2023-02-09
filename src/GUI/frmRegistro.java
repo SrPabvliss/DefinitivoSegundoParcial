@@ -55,6 +55,7 @@ public class frmRegistro extends javax.swing.JFrame {
         cmbMes = new javax.swing.JComboBox<>();
         cmbAnio = new javax.swing.JComboBox<>();
         cmbSexo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         jTextField3.setPreferredSize(new java.awt.Dimension(150, 20));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -215,6 +216,10 @@ public class frmRegistro extends javax.swing.JFrame {
         cmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino", "No Especificado" }));
         fondo.add(cmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, -1));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoRegistro.png"))); // NOI18N
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, -1));
 
         pack();
@@ -297,6 +302,7 @@ public class frmRegistro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbMes;
     private javax.swing.JComboBox<String> cmbSexo;
     public static javax.swing.JPanel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblCedula;

@@ -37,7 +37,9 @@ public class mdiUsuario extends javax.swing.JFrame {
         mnuCerrarSesion1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1000, 800));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Escritorio.setPreferredSize(new java.awt.Dimension(1000, 800));

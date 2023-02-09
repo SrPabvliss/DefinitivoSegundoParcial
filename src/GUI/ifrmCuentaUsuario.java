@@ -74,7 +74,7 @@ public class ifrmCuentaUsuario extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 289, -1));
 
         jLabel9.setBackground(new java.awt.Color(0, 153, 255));
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ENCABEZADOinfoUsuario.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cafe.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 170));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 130));
@@ -82,43 +82,43 @@ public class ifrmCuentaUsuario extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Cedula de identidad:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 99, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel3.setText("Sexo:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 133, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel4.setText("Residencia:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 167, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel5.setText("Telefono:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 201, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jLabel6.setText("Estado civil:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 235, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jLabel7.setText("Fecha de Nacimiento:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 269, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         jLabel8.setText("Nacionalidad:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 303, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
         txtCI.setEditable(false);
-        jPanel2.add(txtCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 96, 170, -1));
+        jPanel2.add(txtCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 170, -1));
 
         txtSexo.setEditable(false);
-        jPanel2.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 130, 170, -1));
+        jPanel2.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 170, -1));
 
         txtResidencia.setEditable(false);
-        jPanel2.add(txtResidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 164, 170, -1));
+        jPanel2.add(txtResidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 170, -1));
 
         txtTelefono.setEditable(false);
-        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 198, 170, -1));
+        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 170, -1));
 
         txtEstadoCivil.setEditable(false);
-        jPanel2.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 232, 170, -1));
+        jPanel2.add(txtEstadoCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 170, -1));
 
         txtFechaNacimiento.setEditable(false);
-        jPanel2.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 266, 170, -1));
+        jPanel2.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 170, -1));
 
         txtNacionalidad.setEditable(false);
         txtNacionalidad.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class ifrmCuentaUsuario extends javax.swing.JInternalFrame {
                 txtNacionalidadActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 300, 170, -1));
+        jPanel2.add(txtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 170, -1));
 
         txtApellido.setEditable(false);
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -136,7 +136,7 @@ public class ifrmCuentaUsuario extends javax.swing.JInternalFrame {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 56, 291, -1));
+        jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 291, -1));
 
         txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -148,15 +148,15 @@ public class ifrmCuentaUsuario extends javax.swing.JInternalFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 19, 291, -1));
+        jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 291, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/INFOusuario.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoBeige.png"))); // NOI18N
         jLabel11.setToolTipText("");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -140, 400, 570));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -140, 380, 500));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 380, 400));
 
-        setBounds(300, 70, 379, 538);
+        setBounds(300, 70, 374, 502);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

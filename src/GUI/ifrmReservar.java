@@ -47,7 +47,6 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
 
     public void comprobarReserva() {
         //DESDE AQUI SERIA EL NUEVO METODO PARA USUARIO 
-        
 
         fechaIncioAlquiler.setDate(Integer.parseInt(String.valueOf(cmbDiaInicio.getSelectedItem())));
         fechaIncioAlquiler.setYear(2023);
@@ -90,15 +89,15 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
                         System.out.println("El mes esta dentro del rango del anterior alquiler, verificando dia");
                         if (!(fechaIncioAlquiler.getDate() >= fechaInicioBD.getDate() && fechaIncioAlquiler.getDate() <= fechaFinalBD.getDate())) {
                             System.out.println("Se puede proceder, el dia esta disponible");
-                            
+
                             completarFechaFinal();
                         } else {
-                            
+
                             JOptionPane.showMessageDialog(null, "El coche ya ha sido alquilado en esa fecha, no se puede alquilar");
                             System.out.println("El coche ya ha sido alquilado en esa fecha, no se puede alquilar");
                         }
                     } else {
-                       
+
                         System.out.println("Se puede proceder al alquiler");
                         completarFechaFinal();
                     }
@@ -115,7 +114,6 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
             //Verificar si se puede llenar los combo box de esta manera para facilitar la validacion del registro
 //            String envioAbase = fechaIncioAlquiler.getYear() + "-" + fechaIncioAlquiler.getMonth() + "-" + fechaIncioAlquiler.getDate();
 //            System.out.println("envioAbase = " + envioAbase);
-
         } catch (SQLException ex) {
             System.out.println("ex = " + ex);
         }
@@ -204,7 +202,7 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         lblIndicacion2.setEnabled(true);
         cmbDiaFInal.setEnabled(true);
         cmbMesFinal.setEnabled(true);
-        
+
     }
 
     /**
@@ -247,16 +245,18 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         btnFinalizarReserva = new javax.swing.JButton();
         btnVerificar = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
         setBorder(null);
-        setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Reservar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 800, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Fecha de inicio reserva:");
@@ -395,7 +395,20 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         getContentPane().add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 190, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-izquierda-círculo-60.png"))); // NOI18N
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reservar.png"))); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoBeige.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 410));
 
         setBounds(100, 100, 796, 427);
     }// </editor-fold>//GEN-END:initComponents
@@ -435,13 +448,21 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
         System.out.println("fechaFin = " + fechaFin);
         System.out.println(UsuarioDatos.matricula);
         System.out.println(UsuarioDatos.cedula);
-        
+
         user.almacenarReserva(UsuarioDatos.matricula, UsuarioDatos.cedula, fechaInicio, fechaFin);
     }//GEN-LAST:event_btnFinalizarReservaMouseClicked
 
     private void cmbMesFinalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbMesFinalItemStateChanged
 
     }//GEN-LAST:event_cmbMesFinalItemStateChanged
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        ifrmVehiculosUsuario reserva = new ifrmVehiculosUsuario();
+        mdiUsuario.Escritorio.add(reserva);
+        reserva.toFront();
+        reserva.show();
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel18MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -456,6 +477,8 @@ public class ifrmReservar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

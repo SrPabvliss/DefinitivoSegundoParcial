@@ -38,6 +38,8 @@ public class mdiAdministradorCliente extends javax.swing.JFrame {
         mnuCerrarS = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         lblFlecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFlecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-izquierda-círculo-60.png"))); // NOI18N

@@ -44,6 +44,7 @@ public class frmAdministrador extends javax.swing.JFrame {
         lblContrasenia = new javax.swing.JLabel();
         txtContrasenia = new javax.swing.JPasswordField();
         btnIngresoS = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,7 +64,7 @@ public class frmAdministrador extends javax.swing.JFrame {
 
         lblAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-configuración-del-administrador-96.png"))); // NOI18N
-        jPanel1.add(lblAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 25, 236, -1));
+        jPanel1.add(lblAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 236, -1));
 
         lblNombre.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -82,7 +83,11 @@ public class frmAdministrador extends javax.swing.JFrame {
                 btnIngresoSActionPerformed(evt);
             }
         });
-        jPanel1.add(btnIngresoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 100, -1));
+        jPanel1.add(btnIngresoS, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 100, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Wallpaper.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 270));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 270));
 
@@ -193,6 +198,7 @@ public class frmAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresoS;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblContrasenia;

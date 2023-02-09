@@ -40,6 +40,8 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
         btnReservar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtSeleccion = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -47,8 +49,9 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Vehiculo disponibles");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 20, 870, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Fax", 0, 18)); // NOI18N
         jLabel2.setText("Busqueda personalizada:");
@@ -82,7 +85,7 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
                 txtFiltroKeyReleased(evt);
             }
         });
-        getContentPane().add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 320, 20));
+        getContentPane().add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 390, 20));
 
         tblCocheU.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,7 +121,7 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
         jScrollPane4.setViewportView(tblCocheU);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 810, 270));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 320, 20));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 390, 20));
 
         btnReservar.setText("Reservar");
         btnReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -137,6 +140,12 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
         txtSeleccion.setEditable(false);
         txtSeleccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(txtSeleccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 490, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Disponible.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoBeige.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 480));
 
         setBounds(60, 120, 867, 500);
     }// </editor-fold>//GEN-END:initComponents
@@ -190,6 +199,8 @@ public class ifrmVehiculosUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable tblCocheU;

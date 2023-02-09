@@ -17,6 +17,7 @@ Administrador admin3 = new Administrador();
      */
     public ifrmModificarCoche() {
         initComponents();
+        admin3.cargarCoche(cmbMatricula);
     }
 
     /**
@@ -38,7 +39,6 @@ Administrador admin3 = new Administrador();
         btnActualizar = new javax.swing.JButton();
         lblIdGarage = new javax.swing.JLabel();
         lblMatricula = new javax.swing.JLabel();
-        txtMatricula = new javax.swing.JTextField();
         txtModelo = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtColor = new javax.swing.JTextField();
@@ -46,26 +46,37 @@ Administrador admin3 = new Administrador();
         txtIdGarage = new javax.swing.JTextField();
         lblMarca = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
+        cmbMatricula = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtIdAgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 191, -1));
 
         lblColor.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblColor.setText("Color:");
+        getContentPane().add(lblColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         txtAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAnioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 83, -1));
 
         lblIdAgencia.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblIdAgencia.setText("Id Agencia:");
+        getContentPane().add(lblIdAgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 131, -1));
 
         lblAnio.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblAnio.setText("Año:");
+        getContentPane().add(lblAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 80, -1));
 
         lblPrecio.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblPrecio.setText("Precio:");
+        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         btnActualizar.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -79,30 +90,39 @@ Administrador admin3 = new Administrador();
                 btnActualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, -1, -1));
 
         lblIdGarage.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblIdGarage.setText("Id Garage:");
+        getContentPane().add(lblIdGarage, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         lblMatricula.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblMatricula.setText("Matricula:");
+        getContentPane().add(lblMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 69, -1));
 
         txtModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModeloActionPerformed(evt);
             }
         });
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 191, -1));
+        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 191, -1));
 
         txtColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtColorActionPerformed(evt);
             }
         });
+        getContentPane().add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 191, -1));
 
         lblModelo.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblModelo.setText("Modelo:");
+        getContentPane().add(lblModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        getContentPane().add(txtIdGarage, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 55, -1));
 
         lblMarca.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblMarca.setText("Marca:");
+        getContentPane().add(lblMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         btnConsultar.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         btnConsultar.setText("Consultar");
@@ -111,90 +131,18 @@ Administrador admin3 = new Administrador();
                 btnConsultarMouseClicked(evt);
             }
         });
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIdGarage)
-                            .addComponent(lblColor)
-                            .addComponent(lblAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecio)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblIdAgencia, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(lblMarca)
-                                    .addComponent(lblModelo))))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(txtMarca)
-                            .addComponent(txtModelo)
-                            .addComponent(txtColor)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtIdAgencia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addComponent(txtIdGarage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(btnConsultar)
-                        .addGap(88, 88, 88)
-                        .addComponent(btnActualizar)))
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMatricula))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblModelo)
-                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblMarca)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblColor)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblIdGarage))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdGarage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIdAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdAgencia))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAnio))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPrecio)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConsultar)
-                    .addComponent(btnActualizar))
-                .addGap(32, 32, 32))
-        );
+        getContentPane().add(cmbMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 191, -1));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EditarCoches.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 430, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EncabezadoAgregarPersonas.png"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(440, 604));
+        jLabel2.setPreferredSize(new java.awt.Dimension(440, 604));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,11 +160,11 @@ Administrador admin3 = new Administrador();
     }//GEN-LAST:event_txtAnioActionPerformed
 
     private void btnActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarMouseClicked
-          admin3.actualizarCoche(txtMatricula, txtIdAgencia, txtIdGarage, txtModelo, txtColor, txtAnio, txtMarca, txtPrecio); // TODO add your handling code here:
+          admin3.actualizarCoche(cmbMatricula, txtIdAgencia, txtIdGarage, txtModelo, txtColor, txtAnio, txtMarca, txtPrecio); // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarMouseClicked
 
     private void btnConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultarMouseClicked
-        admin3.consultarVehiculo(txtMatricula, txtIdAgencia, txtIdGarage, txtModelo, txtColor, txtAnio, txtMarca, txtPrecio);// TODO add your handling code here:
+        admin3.consultarVehiculo(cmbMatricula, txtIdAgencia, txtIdGarage, txtModelo, txtColor, txtAnio, txtMarca, txtPrecio);// TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarMouseClicked
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -227,6 +175,9 @@ Administrador admin3 = new Administrador();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnConsultar;
+    private javax.swing.JComboBox<String> cmbMatricula;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblIdAgencia;
@@ -240,7 +191,6 @@ Administrador admin3 = new Administrador();
     private javax.swing.JTextField txtIdAgencia;
     private javax.swing.JTextField txtIdGarage;
     private javax.swing.JTextField txtMarca;
-    private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

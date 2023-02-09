@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,6 +50,8 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
         btnFinalizar = new javax.swing.JButton();
         txtSeleccion1 = new javax.swing.JTextField();
         txtID1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setBorder(null);
         setClosable(true);
@@ -155,6 +158,13 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 60, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dinero.png"))); // NOI18N
+        jLabel2.setToolTipText("");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoBeige.png"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 450));
+
         setBounds(125, 80, 706, 475);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -183,7 +193,7 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
             precio = (Double.parseDouble(String.valueOf(tblReservas.getValueAt(i, 7))));
             System.out.println(precio);
             total += days*precio;
-            System.out.println(total);
+            JOptionPane.showMessageDialog(null, "El precio a pagar es: " + total);
         }
         return total;
     }
@@ -217,6 +227,8 @@ public class ifrmMostrarReservas extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblReservas;

@@ -45,51 +45,70 @@ public class ifrmAgregarCoche extends javax.swing.JInternalFrame {
         txtModelo = new javax.swing.JTextField();
         lblColor = new javax.swing.JLabel();
         btnAgreg = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(459, 603));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 225, 191, -1));
 
         txtAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAnioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 367, 83, -1));
 
         txtColorin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtColorinActionPerformed(evt);
             }
         });
+        getContentPane().add(txtColorin, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 259, 191, -1));
 
         lblIdAgencia.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblIdAgencia.setText("Id Agencia:");
+        getContentPane().add(lblIdAgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 331, -1, -1));
 
         lblModelo.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblModelo.setText("Modelo:");
+        getContentPane().add(lblModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 198, -1, -1));
+        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 404, 131, -1));
+        getContentPane().add(txtIdGarage, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 293, 55, -1));
 
         lblAnio.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblAnio.setText("Año:");
+        getContentPane().add(lblAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 367, 80, -1));
 
         lblMarca.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblMarca.setText("Marca:");
+        getContentPane().add(lblMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 231, -1, -1));
 
         lblPrecio.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblPrecio.setText("Precio:");
+        getContentPane().add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 411, -1, -1));
 
         lblIdGarage.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblIdGarage.setText("Id Garage:");
+        getContentPane().add(lblIdGarage, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 297, -1, -1));
 
         lblMatricula.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblMatricula.setText("Matricula:");
+        getContentPane().add(lblMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 152, 69, -1));
+        getContentPane().add(txtMatricula, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 148, 191, -1));
+        getContentPane().add(txtIdAgencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 327, 191, -1));
 
         txtModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModeloActionPerformed(evt);
             }
         });
+        getContentPane().add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 191, 191, -1));
 
         lblColor.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblColor.setText("Color:");
+        getContentPane().add(lblColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 264, -1, -1));
 
         btnAgreg.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         btnAgreg.setText("Agregar");
@@ -98,86 +117,14 @@ public class ifrmAgregarCoche extends javax.swing.JInternalFrame {
                 btnAgregMouseClicked(evt);
             }
         });
+        getContentPane().add(btnAgreg, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 488, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblIdGarage)
-                            .addComponent(lblColor)
-                            .addComponent(lblAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecio)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblMatricula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblIdAgencia, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(lblMarca)
-                                    .addComponent(lblModelo))))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(txtMarca)
-                            .addComponent(txtModelo)
-                            .addComponent(txtColorin)
-                            .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtIdAgencia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                .addComponent(txtIdGarage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(btnAgreg)))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMatricula))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblModelo)
-                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblMarca)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblColor)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblIdGarage))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtColorin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdGarage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIdAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblIdAgencia))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAnio))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPrecio)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(btnAgreg)
-                .addGap(57, 57, 57))
-        );
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Carro.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 450, 100));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/EncabezadoAgregarPersonas.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2090, 1120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,6 +148,8 @@ public class ifrmAgregarCoche extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgreg;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblIdAgencia;
@@ -210,8 +159,6 @@ public class ifrmAgregarCoche extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JTextField txtAnio;
-    private javax.swing.JTextField txtColor;
-    private javax.swing.JTextField txtColor1;
     private javax.swing.JTextField txtColorin;
     private javax.swing.JTextField txtIdAgencia;
     private javax.swing.JTextField txtIdGarage;

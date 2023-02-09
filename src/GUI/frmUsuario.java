@@ -43,6 +43,7 @@ public class frmUsuario extends javax.swing.JFrame {
         txtPasswd = new javax.swing.JPasswordField();
         btnIngresar = new javax.swing.JButton();
         lblregistro = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -109,6 +110,10 @@ public class frmUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(lblregistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Wallpaper.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 270));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 270));
 
         pack();
@@ -152,7 +157,7 @@ public class frmUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_lblregistroMouseClicked
 
     private void lblregistroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblregistroMouseEntered
-        lblregistro.setForeground(new Color(26, 217, 239));
+        lblregistro.setForeground(new Color(0, 150, 199));
     }//GEN-LAST:event_lblregistroMouseEntered
 
     private void lblregistroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblregistroMouseExited
@@ -206,6 +211,7 @@ public class frmUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

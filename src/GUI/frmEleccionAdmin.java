@@ -35,16 +35,22 @@ public class frmEleccionAdmin extends javax.swing.JFrame {
         lbl1 = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
         btnClose = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAgencias.setFont(new java.awt.Font("Lucida Fax", 1, 36)); // NOI18N
         lblAgencias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAgencias.setText("MENU");
         lblAgencias.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblAgencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 145, -1));
 
         lblSelecciona.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         lblSelecciona.setText("Selecciona una opción:");
+        getContentPane().add(lblSelecciona, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         lblCoche.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCoche.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-configuración-del-administrador-96.png"))); // NOI18N
@@ -54,6 +60,7 @@ public class frmEleccionAdmin extends javax.swing.JFrame {
                 lblCocheMouseClicked(evt);
             }
         });
+        getContentPane().add(lblCoche, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 112, 116));
 
         lblCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-usuario-90.png"))); // NOI18N
@@ -64,14 +71,17 @@ public class frmEleccionAdmin extends javax.swing.JFrame {
                 lblClienteMouseClicked(evt);
             }
         });
+        getContentPane().add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 113, 116));
 
         lbl1.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl1.setText("Coche");
+        getContentPane().add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 112, -1));
 
         lbl2.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         lbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl2.setText("Cliente");
+        getContentPane().add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 113, -1));
 
         btnClose.setText("Cerrar");
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,53 +89,11 @@ public class frmEleccionAdmin extends javax.swing.JFrame {
                 btnCloseMouseClicked(evt);
             }
         });
+        getContentPane().add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(160, 160, 160))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAgencias, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSelecciona))
-                        .addGap(220, 220, 220))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnClose)
-                        .addGap(28, 28, 28))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnClose)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAgencias)
-                .addGap(7, 7, 7)
-                .addComponent(lblSelecciona)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl1)
-                    .addComponent(lbl2))
-                .addGap(37, 37, 37))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Wallpaper.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,6 +153,7 @@ public class frmEleccionAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblAgencias;
